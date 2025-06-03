@@ -24,21 +24,16 @@ function Banner() {
                 })
             })
             const data = await response.json();
-            console.log(data);
             if (data != "") {
                window.location.href = link;
             }
-            console.log(link);
         } catch (error) {
             console.error(error)
         }
     }
 
-    // A react nem látja az API kérést a POSTMAN pedig látja rendesen és vissza küldi az adatokat. Megoldást igényel.
-    // Visszaszámláló useEffect
     useEffect(() => {
-        let timer: NodeJS.Timeout | undefined; // Nem jó dupplikálja a logot. és a beérkező adatokat.
-
+        let timer: NodeJS.Timeout | undefined;
         const checkLink = async () => {
             try {
                 const response = await fetch(`${import.meta.env.VITE_DOMAIN}/api/${dynamicLink}`, {
@@ -49,10 +44,9 @@ function Banner() {
                     body: JSON.stringify({})
                 });
                 if (!response.ok) {
-                    // window.location.href = `${import.meta.env.VITE_DOMAIN_SELF}/`;
+                    window.location.href = `${import.meta.env.VITE_DOMAIN_SELF}/`;
                 }
                 const data = await response.json();
-                console.log(data);
                 setLink(data.goLink);
             } catch (error) {
                 console.error('Error fetching link:', error);
@@ -63,7 +57,6 @@ function Banner() {
             checkLink();
         }
 
-        // Start countdown timer
         timer = setInterval(() => {
             setCountdown(prevCountdown => {
                 if (prevCountdown > 1) {
@@ -75,8 +68,7 @@ function Banner() {
                 }
             });
         }, 1000);
-
-        // Cleanup function
+        
         return () => {
             clearInterval(timer);
         };
