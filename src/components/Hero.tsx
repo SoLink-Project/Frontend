@@ -16,23 +16,19 @@ function Hero() {
     const regex = /^[A-Za-z0-9_-]*$/;
 
     function copyToClipboard(text: string) {
-        // Létrehoz egy ideiglenes textarea elemet
         const textArea = document.createElement('textarea');
-        textArea.value = text; // Beállítja a másolandó szöveget
-        document.body.appendChild(textArea); // Hozzáadja a textarea-t a body-hoz
+        textArea.value = text; 
+        document.body.appendChild(textArea); 
     
-        // Fókuszál és kijelöli a szöveget
         textArea.select();
-        textArea.setSelectionRange(0, 99999); // Mobil eszközök támogatása
+        textArea.setSelectionRange(0, 99999); 
     
         try {
-            // Másolás a vágólapra
             document.execCommand('copy');
         } catch (err) {
             console.error('Failed to copy text: ', err);
         }
     
-        // Törli az ideiglenes textarea-t
         document.body.removeChild(textArea);
     }
 
