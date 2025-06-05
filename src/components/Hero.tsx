@@ -154,10 +154,7 @@ function Hero() {
                                 <div className="mt-2 sm:mt-4 mx-auto max-w-xl relative">
                                     <div>
                                         <div className="relative z-10 flex gap-x-3 p-3 bg-[#87878756] rounded-lg shadow-lg">
-                                            <input value={customLink} maxLength={16} onChange={(e) => setCustomLink(e.target.value)} type="text" id="hs-inline-add-on" name="hs-inline-add-on" className="py-3 bg-transparent px-5 ps-[190px] block w-full focus:z-10 text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 rounded-lg disabled:pointer-events-none outline-none" placeholder="Type your unique name" />
-                                            <div className="absolute inset-y-0 start-3 flex items-center pointer-events-none z-20 ps-4">
-                                                <span className=" text-gray-400">{import.meta.env.VITE_DOMAIN_SELF}/</span>
-                                            </div>
+                                            <input value={customLink} maxLength={16} onChange={(e) => setCustomLink(e.target.value)} type="text" id="hs-inline-add-on" name="hs-inline-add-on" className="py-3 bg-transparent px-4 block w-full focus:z-10 text-gray-400 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 rounded-lg disabled:pointer-events-none outline-none" placeholder="Type your custom name" />
                                             {upDown ? <div>
                                                 <button className="size-[46px] inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#B50A4E] text-white hover:bg-[#a1184f] focus:outline-none disabled:opacity-50 disabled:pointer-events-none " onClick={handleSubmit}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
